@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock - Paper - Scissor</title>
+</head>
+<body>
+    <h1>Rock Paper Scissors  </h1>
+
+    <h2>score of the computer: </h2>
+    <h2>your score: </h2>
+
+    <p>You are playing with the computer</p>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="Scissor">Scissor</button>
+
+    <script>
+      const computerChoice = Math.random();
+      let computerSelection = '';
+      let buttonRock = document.getElementById('rock');  
+      let buttonPaper = document.getElementById('paper');  
+      let buttonScissor = document.getElementById('Scissor');  
+
+      if(computerChoice<=1/3){
+        computerSelection='Scissor';
+      }else if(computerChoice>1/3 && computerChoice<=2/3){
+        computerSelection='Rock';
+      }else if(computerChoice>2/3 && computerChoice<1){
+        computerSelection='Paper';
+      }
+
+      buttonRock.addEventListener('click',()=>{
+        let button = 'Rock';
+        run(button,computerSelection,'Paper');
+      });
+
+      buttonPaper.addEventListener('click',()=>{
+        let button = 'Paper';
+        run(button,computerSelection,'Scissor');
+    });
+
+      buttonScissor.addEventListener('click',()=>{
+        let button = 'Scissor';
+        run(button,computerSelection,'Rock');
+    });
+
+    function run(button,computerSelection,computerSelectionOther){
+        if(button===computerSelection){
+            alert(`you picked ${button}, the computer picked ${computerSelection} Tie!`);
+        }else if(computerSelection===computerSelectionOther){
+            alert(`you picked ${button}, the computer picked ${computerSelection} you are lost!`);
+        }else{
+            alert(`you picked ${button}, the computer picked ${computerSelection} you are won!`);
+        } 
+        window.location.reload();
+    }
+
+
+
+    </script>
+</body>
+</html>
